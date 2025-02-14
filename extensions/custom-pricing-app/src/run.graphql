@@ -1,0 +1,19 @@
+query RunInput {
+  cart {
+    lines {
+      id
+      quantity
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          id
+          product {
+            defaultVolumePricing: metafield(namespace: "custom", key: "default_volume_pricing") {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+}
